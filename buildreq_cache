@@ -6,3 +6,4 @@ libXft-dev
 ncurses-dev
 pkgconfig(x11)
 pkgconfig(xaw)
+readline-dev

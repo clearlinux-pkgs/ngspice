@@ -1,0 +1,1 @@
+--with-x --enable-xspice --enable-cider --with-readline=yes --enable-openmp

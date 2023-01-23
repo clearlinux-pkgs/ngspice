@@ -4,7 +4,7 @@
 #
 Name     : ngspice
 Version  : 38
-Release  : 3
+Release  : 4
 URL      : https://gigenet.dl.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz
 Source0  : https://gigenet.dl.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz
 Summary  : General-purpose circuit simulator
@@ -23,6 +23,7 @@ BuildRequires : libXft-dev
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xaw7)
+BuildRequires : readline-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -99,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1674510017
+export SOURCE_DATE_EPOCH=1674511093
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -108,10 +109,10 @@ export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -f
 export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-%configure --disable-static
+%configure --disable-static --with-x --enable-xspice --enable-cider --with-readline=yes --enable-openmp
 ## make_prepend content
 make  %{?_smp_mflags}
-%configure --disable-static --with-ngshared
+%configure --disable-static --with-ngshared --enable-xspice --enable-cider --enable-openmp
 ## make_prepend end
 make  %{?_smp_mflags}
 
@@ -123,7 +124,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1674510017
+export SOURCE_DATE_EPOCH=1674511093
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ngspice
 cp %{_builddir}/ngspice-%{version}/COPYING %{buildroot}/usr/share/package-licenses/ngspice/1d84d6ffeb0dfa5292191dd296df378d75ae3cb3 || :
@@ -138,6 +139,12 @@ cp %{_builddir}/ngspice-%{version}/src/spicelib/devices/adms/admst/COPYING %{bui
 
 %files
 %defattr(-,root,root,-)
+/usr/lib64/ngspice/analog.cm
+/usr/lib64/ngspice/digital.cm
+/usr/lib64/ngspice/spice2poly.cm
+/usr/lib64/ngspice/table.cm
+/usr/lib64/ngspice/xtradev.cm
+/usr/lib64/ngspice/xtraevt.cm
 
 %files bin
 %defattr(-,root,root,-)
@@ -145,6 +152,9 @@ cp %{_builddir}/ngspice-%{version}/src/spicelib/devices/adms/admst/COPYING %{bui
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/ngspice/scripts/ciderinit
+/usr/share/ngspice/scripts/devaxis
+/usr/share/ngspice/scripts/devload
 /usr/share/ngspice/scripts/setplot
 /usr/share/ngspice/scripts/spectrum
 /usr/share/ngspice/scripts/spinit
