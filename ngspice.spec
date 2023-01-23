@@ -4,7 +4,7 @@
 #
 Name     : ngspice
 Version  : 38
-Release  : 2
+Release  : 3
 URL      : https://gigenet.dl.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz
 Source0  : https://gigenet.dl.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz
 Summary  : General-purpose circuit simulator
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : BSD-3-Clause GPL-3.0
 Requires: ngspice-bin = %{version}-%{release}
 Requires: ngspice-data = %{version}-%{release}
+Requires: ngspice-lib = %{version}-%{release}
 Requires: ngspice-license = %{version}-%{release}
 Requires: ngspice-man = %{version}-%{release}
 BuildRequires : bison
@@ -50,6 +51,29 @@ Group: Data
 data components for the ngspice package.
 
 
+%package dev
+Summary: dev components for the ngspice package.
+Group: Development
+Requires: ngspice-lib = %{version}-%{release}
+Requires: ngspice-bin = %{version}-%{release}
+Requires: ngspice-data = %{version}-%{release}
+Provides: ngspice-devel = %{version}-%{release}
+Requires: ngspice = %{version}-%{release}
+
+%description dev
+dev components for the ngspice package.
+
+
+%package lib
+Summary: lib components for the ngspice package.
+Group: Libraries
+Requires: ngspice-data = %{version}-%{release}
+Requires: ngspice-license = %{version}-%{release}
+
+%description lib
+lib components for the ngspice package.
+
+
 %package license
 Summary: license components for the ngspice package.
 Group: Default
@@ -75,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1674505098
+export SOURCE_DATE_EPOCH=1674510017
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -85,6 +109,10 @@ export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -
 export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 %configure --disable-static
+## make_prepend content
+make  %{?_smp_mflags}
+%configure --disable-static --with-ngshared
+## make_prepend end
 make  %{?_smp_mflags}
 
 %check
@@ -95,12 +123,18 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1674505098
+export SOURCE_DATE_EPOCH=1674510017
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ngspice
 cp %{_builddir}/ngspice-%{version}/COPYING %{buildroot}/usr/share/package-licenses/ngspice/1d84d6ffeb0dfa5292191dd296df378d75ae3cb3 || :
 cp %{_builddir}/ngspice-%{version}/src/spicelib/devices/adms/admst/COPYING %{buildroot}/usr/share/package-licenses/ngspice/c14c8abb8bb45bce3fd27255b2a59b2ba691b2a4 || :
 %make_install
+## install_append content
+/usr/bin/mkdir -p %{buildroot}/usr/bin
+/usr/bin/install -c -m 755 src/ngspice %{buildroot}/usr/bin
+/usr/bin/mkdir -p %{buildroot}/usr/share/man/man1
+/usr/bin/install -c -m 644 man/man1/ngspice.1 %{buildroot}/usr/share/man/man1
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -114,6 +148,17 @@ cp %{_builddir}/ngspice-%{version}/src/spicelib/devices/adms/admst/COPYING %{bui
 /usr/share/ngspice/scripts/setplot
 /usr/share/ngspice/scripts/spectrum
 /usr/share/ngspice/scripts/spinit
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/ngspice/sharedspice.h
+/usr/lib64/libngspice.so
+/usr/lib64/pkgconfig/ngspice.pc
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libngspice.so.0
+/usr/lib64/libngspice.so.0.0.5
 
 %files license
 %defattr(0644,root,root,0755)
