@@ -1,0 +1,8 @@
+38
+bison
+fftw-dev
+flex
+libXft-dev
+ncurses-dev
+pkgconfig(x11)
+pkgconfig(xaw)
