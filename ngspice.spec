@@ -4,7 +4,7 @@
 #
 Name     : ngspice
 Version  : 38
-Release  : 1
+Release  : 2
 URL      : https://gigenet.dl.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz
 Source0  : https://gigenet.dl.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz
 Summary  : General-purpose circuit simulator
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1674504618
+export SOURCE_DATE_EPOCH=1674505098
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -95,7 +95,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1674504618
+export SOURCE_DATE_EPOCH=1674505098
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ngspice
 cp %{_builddir}/ngspice-%{version}/COPYING %{buildroot}/usr/share/package-licenses/ngspice/1d84d6ffeb0dfa5292191dd296df378d75ae3cb3 || :
