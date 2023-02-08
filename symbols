@@ -1077,6 +1077,7 @@ libngspice.so.0:NIpzMuller
 libngspice.so.0:NIpzSym
 libngspice.so.0:NIpzSym2
 libngspice.so.0:NIreinit
+libngspice.so.0:NIresetwarnmsg
 libngspice.so.0:NIsenReinit
 libngspice.so.0:NIspPreload
 libngspice.so.0:NIspSolve
@@ -1255,6 +1256,7 @@ libngspice.so.0:PTatanh
 libngspice.so.0:PTceil
 libngspice.so.0:PTcos
 libngspice.so.0:PTcosh
+libngspice.so.0:PTddt
 libngspice.so.0:PTdivide
 libngspice.so.0:PTeq0
 libngspice.so.0:PTexp
@@ -1274,6 +1276,7 @@ libngspice.so.0:PTnint
 libngspice.so.0:PTparse
 libngspice.so.0:PTplus
 libngspice.so.0:PTpower
+libngspice.so.0:PTpowerH
 libngspice.so.0:PTpwl
 libngspice.so.0:PTpwl_derivative
 libngspice.so.0:PTpwr
@@ -1969,6 +1972,8 @@ libngspice.so.0:exprand
 libngspice.so.0:externalerror
 libngspice.so.0:eye
 libngspice.so.0:f_alpha
+libngspice.so.0:f_logicexp
+libngspice.so.0:f_pindly
 libngspice.so.0:fastnorm
 libngspice.so.0:fatal
 libngspice.so.0:fftFree
@@ -2094,6 +2099,7 @@ libngspice.so.0:get_r_paren
 libngspice.so.0:get_res_info
 libngspice.so.0:get_soi3_info
 libngspice.so.0:get_sw_info
+libngspice.so.0:get_temp_name
 libngspice.so.0:get_tra_info
 libngspice.so.0:get_txl_info
 libngspice.so.0:get_urc_info
@@ -2235,6 +2241,11 @@ libngspice.so.0:killDomainInfo
 libngspice.so.0:killElectrodeInfo
 libngspice.so.0:kw_match
 libngspice.so.0:l2Norm
+libngspice.so.0:limitJunctionVoltage
+libngspice.so.0:limitResistorVoltage
+libngspice.so.0:limitVbe
+libngspice.so.0:limitVce
+libngspice.so.0:limitVgb
 libngspice.so.0:lincopy
 libngspice.so.0:line_free_x
 libngspice.so.0:line_nconc
@@ -2259,7 +2270,6 @@ libngspice.so.0:my_key_free
 libngspice.so.0:myfputc
 libngspice.so.0:myputc
 libngspice.so.0:myputs
-libngspice.so.0:new_inverter
 libngspice.so.0:newcmat
 libngspice.so.0:newcmatnoinit
 libngspice.so.0:newmat
@@ -2315,14 +2325,15 @@ libngspice.so.0:norm
 libngspice.so.0:nullmat
 libngspice.so.0:num_devices
 libngspice.so.0:nupa_add_dicoslist
-libngspice.so.0:nupa_add_inst_param
 libngspice.so.0:nupa_add_param
 libngspice.so.0:nupa_assignment
 libngspice.so.0:nupa_copy
 libngspice.so.0:nupa_copy_inst_dico
+libngspice.so.0:nupa_copy_inst_entry
 libngspice.so.0:nupa_del_dicoS
 libngspice.so.0:nupa_eval
 libngspice.so.0:nupa_get_param
+libngspice.so.0:nupa_get_string_param
 libngspice.so.0:nupa_list_params
 libngspice.so.0:nupa_rem_dicoslist
 libngspice.so.0:nupa_scan
@@ -2394,6 +2405,7 @@ libngspice.so.0:printvals_old
 libngspice.so.0:process
 libngspice.so.0:prompt
 libngspice.so.0:promptreturn
+libngspice.so.0:pscat
 libngspice.so.0:pscopy
 libngspice.so.0:pvec
 libngspice.so.0:qr
@@ -2553,9 +2565,12 @@ libngspice.so.0:trnoise_state_init
 libngspice.so.0:trrandom_state_init
 libngspice.so.0:tvprintf
 libngspice.so.0:txfree
+libngspice.so.0:u_add_instance
+libngspice.so.0:u_add_logicexp_model
 libngspice.so.0:u_check_instance
 libngspice.so.0:u_process_instance
 libngspice.so.0:u_process_model_line
+libngspice.so.0:u_remember_pin
 libngspice.so.0:unset_all
 libngspice.so.0:urandm
 libngspice.so.0:var_alloc
