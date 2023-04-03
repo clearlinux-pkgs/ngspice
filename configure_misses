@@ -1,12 +1,24 @@
 Configure miss: if hard-coding of the X11 runtime library path is desired
+Configure miss: if hard-coding of the X11 runtime library path is desired
+Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h presence
+Configure miss: ncurses/termcap.h presence
+Configure miss: ncurses/termcap.h usability
 Configure miss: ncurses/termcap.h usability
 Configure miss: sighandler_t
+Configure miss: sighandler_t
+Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: stropts.h presence
+Configure miss: stropts.h presence
+Configure miss: stropts.h usability
 Configure miss: stropts.h usability
 Configure miss: sys/sysctl.h
+Configure miss: sys/sysctl.h
+Configure miss: sys/sysctl.h presence
 Configure miss: sys/sysctl.h presence
 Configure miss: sys/sysctl.h usability
+Configure miss: sys/sysctl.h usability
+Configure miss: whether windows code with gui is enabled
 Configure miss: whether windows code with gui is enabled

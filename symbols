@@ -568,6 +568,7 @@ libngspice.so.0:EVTswitch_plot
 libngspice.so.0:EVTtermInsert
 libngspice.so.0:EVTunsetup
 libngspice.so.0:EqualDeriv
+libngspice.so.0:Evt_purge_free_outputs
 libngspice.so.0:Evtcheck_nodes
 libngspice.so.0:ExpDeriv
 libngspice.so.0:FindDev
@@ -1656,6 +1657,7 @@ libngspice.so.0:cm_message_send
 libngspice.so.0:cm_netlist_get_c
 libngspice.so.0:cm_netlist_get_l
 libngspice.so.0:cm_probe_node
+libngspice.so.0:cm_schedule_output
 libngspice.so.0:cm_smooth_corner
 libngspice.so.0:cm_smooth_discontinuity
 libngspice.so.0:cm_smooth_pwl
@@ -1851,6 +1853,7 @@ libngspice.so.0:ctriinverse
 libngspice.so.0:cvconcat
 libngspice.so.0:cx_and
 libngspice.so.0:cx_atan
+libngspice.so.0:cx_atanh
 libngspice.so.0:cx_avg
 libngspice.so.0:cx_ceil
 libngspice.so.0:cx_comma
