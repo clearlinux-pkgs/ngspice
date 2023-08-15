@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : ngspice
-Version  : 40
-Release  : 7
-URL      : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/40/ngspice-40.tar.gz
-Source0  : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/40/ngspice-40.tar.gz
+Version  : 41
+Release  : 8
+URL      : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/41/ngspice-41.tar.gz
+Source0  : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/41/ngspice-41.tar.gz
 Summary  : General-purpose circuit simulator
 Group    : Development/Tools
 License  : GPL-3.0 MPL-2.0
@@ -91,15 +91,18 @@ man components for the ngspice package.
 
 
 %prep
-%setup -q -n ngspice-40
-cd %{_builddir}/ngspice-40
+%setup -q -n ngspice-41
+cd %{_builddir}/ngspice-41
+pushd ..
+cp -a ngspice-41 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689808495
+export SOURCE_DATE_EPOCH=1692143194
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -115,19 +118,38 @@ make  %{?_smp_mflags}
 ## make_prepend end
 make  %{?_smp_mflags}
 
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
+%configure --disable-static --with-x --enable-xspice --enable-cider --with-readline=yes --enable-openmp
+## make_prepend content
+make  %{?_smp_mflags}
+%configure --disable-static --with-ngshared --enable-xspice --enable-cider --enable-openmp
+## make_prepend end
+make  %{?_smp_mflags}
+popd
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
+cd ../buildavx2;
+make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1689808495
+export SOURCE_DATE_EPOCH=1692143194
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ngspice
 cp %{_builddir}/ngspice-%{version}/COPYING %{buildroot}/usr/share/package-licenses/ngspice/a1491cd75848105be6eef7dd4dee78b9bec62718 || :
 cp %{_builddir}/ngspice-%{version}/src/spicelib/devices/adms/admst/COPYING %{buildroot}/usr/share/package-licenses/ngspice/c14c8abb8bb45bce3fd27255b2a59b2ba691b2a4 || :
+pushd ../buildavx2/
+%make_install_v3
+popd
 %make_install
 ## install_append content
 /usr/bin/mkdir -p %{buildroot}/usr/bin
@@ -135,9 +157,16 @@ cp %{_builddir}/ngspice-%{version}/src/spicelib/devices/adms/admst/COPYING %{bui
 /usr/bin/mkdir -p %{buildroot}/usr/share/man/man1
 /usr/bin/install -c -m 644 man/man1/ngspice.1 %{buildroot}/usr/share/man/man1
 ## install_append end
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
+/V3/usr/lib64/ngspice/analog.cm
+/V3/usr/lib64/ngspice/digital.cm
+/V3/usr/lib64/ngspice/spice2poly.cm
+/V3/usr/lib64/ngspice/table.cm
+/V3/usr/lib64/ngspice/xtradev.cm
+/V3/usr/lib64/ngspice/xtraevt.cm
 /usr/lib64/ngspice/analog.cm
 /usr/lib64/ngspice/digital.cm
 /usr/lib64/ngspice/spice2poly.cm
@@ -166,8 +195,9 @@ cp %{_builddir}/ngspice-%{version}/src/spicelib/devices/adms/admst/COPYING %{bui
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libngspice.so.0.0.8
 /usr/lib64/libngspice.so.0
-/usr/lib64/libngspice.so.0.0.7
+/usr/lib64/libngspice.so.0.0.8
 
 %files license
 %defattr(0644,root,root,0755)

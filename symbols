@@ -443,6 +443,7 @@ libngspice.so.0:CSWparam
 libngspice.so.0:CSWpzLoad
 libngspice.so.0:CSWsetup
 libngspice.so.0:CSWtrunc
+libngspice.so.0:CiderLoaded
 libngspice.so.0:CombLCGTaus
 libngspice.so.0:CombLCGTaus2
 libngspice.so.0:CombLCGTausInt
@@ -783,6 +784,7 @@ libngspice.so.0:ISRCparam
 libngspice.so.0:ISRCtemp
 libngspice.so.0:Input
 libngspice.so.0:InvDeriv
+libngspice.so.0:IsCiderLoaded
 libngspice.so.0:JFET2acLoad
 libngspice.so.0:JFET2ask
 libngspice.so.0:JFET2getic
@@ -1032,6 +1034,7 @@ libngspice.so.0:NBJT2dump
 libngspice.so.0:NBJT2initSmSig
 libngspice.so.0:NBJT2load
 libngspice.so.0:NBJT2mParam
+libngspice.so.0:NBJT2modDelete
 libngspice.so.0:NBJT2param
 libngspice.so.0:NBJT2project
 libngspice.so.0:NBJT2pzLoad
@@ -1053,6 +1056,7 @@ libngspice.so.0:NBJTinitSmSig
 libngspice.so.0:NBJTjunctions
 libngspice.so.0:NBJTload
 libngspice.so.0:NBJTmParam
+libngspice.so.0:NBJTmodDelete
 libngspice.so.0:NBJTparam
 libngspice.so.0:NBJTproject
 libngspice.so.0:NBJTpzLoad
@@ -1094,6 +1098,7 @@ libngspice.so.0:NUMD2dump
 libngspice.so.0:NUMD2initSmSig
 libngspice.so.0:NUMD2load
 libngspice.so.0:NUMD2mParam
+libngspice.so.0:NUMD2modDelete
 libngspice.so.0:NUMD2param
 libngspice.so.0:NUMD2project
 libngspice.so.0:NUMD2pzLoad
@@ -1114,6 +1119,7 @@ libngspice.so.0:NUMDdump
 libngspice.so.0:NUMDinitSmSig
 libngspice.so.0:NUMDload
 libngspice.so.0:NUMDmParam
+libngspice.so.0:NUMDmodDelete
 libngspice.so.0:NUMDparam
 libngspice.so.0:NUMDproject
 libngspice.so.0:NUMDpzLoad
@@ -1134,6 +1140,7 @@ libngspice.so.0:NUMOSdump
 libngspice.so.0:NUMOSinitSmSig
 libngspice.so.0:NUMOSload
 libngspice.so.0:NUMOSmParam
+libngspice.so.0:NUMOSmodDelete
 libngspice.so.0:NUMOSparam
 libngspice.so.0:NUMOSproject
 libngspice.so.0:NUMOSpzLoad
@@ -1861,6 +1868,7 @@ libngspice.so.0:cx_conj
 libngspice.so.0:cx_cos
 libngspice.so.0:cx_cosh
 libngspice.so.0:cx_cph
+libngspice.so.0:cx_cvector
 libngspice.so.0:cx_d
 libngspice.so.0:cx_db
 libngspice.so.0:cx_deriv
@@ -2183,12 +2191,14 @@ libngspice.so.0:inp_list
 libngspice.so.0:inp_mc_free
 libngspice.so.0:inp_nutsource
 libngspice.so.0:inp_pathopen
+libngspice.so.0:inp_pathresolve
 libngspice.so.0:inp_probe
 libngspice.so.0:inp_read
 libngspice.so.0:inp_readall
 libngspice.so.0:inp_rem_levels
 libngspice.so.0:inp_rem_unused_models
 libngspice.so.0:inp_remove_recent
+libngspice.so.0:inp_remove_ws
 libngspice.so.0:inp_source
 libngspice.so.0:inp_source_recent
 libngspice.so.0:inp_spsource
@@ -2256,6 +2266,8 @@ libngspice.so.0:line_reverse
 libngspice.so.0:listparam
 libngspice.so.0:load_opus
 libngspice.so.0:lookup
+libngspice.so.0:ltspice_compat
+libngspice.so.0:ltspice_compat_a
 libngspice.so.0:lu
 libngspice.so.0:maxNorm
 libngspice.so.0:measure_extract_variables
@@ -2397,6 +2409,7 @@ libngspice.so.0:prefix_n
 libngspice.so.0:printCoordInfo
 libngspice.so.0:printMaterialInfo
 libngspice.so.0:printVoltages
+libngspice.so.0:print_compat_mode
 libngspice.so.0:printdesc
 libngspice.so.0:printheaders
 libngspice.so.0:printnum
@@ -2410,6 +2423,8 @@ libngspice.so.0:prompt
 libngspice.so.0:promptreturn
 libngspice.so.0:pscat
 libngspice.so.0:pscopy
+libngspice.so.0:pspice_compat
+libngspice.so.0:pspice_compat_a
 libngspice.so.0:pvec
 libngspice.so.0:qr
 libngspice.so.0:randcm
@@ -2449,6 +2464,7 @@ libngspice.so.0:seconds
 libngspice.so.0:sens_getp
 libngspice.so.0:sens_sens
 libngspice.so.0:set
+libngspice.so.0:set_compat_mode
 libngspice.so.0:set_dev
 libngspice.so.0:set_inst
 libngspice.so.0:set_model
@@ -2590,6 +2606,7 @@ libngspice.so.0:var_set_vlist
 libngspice.so.0:vareval
 libngspice.so.0:vbic_4T_et_cf_fj
 libngspice.so.0:vbic_4T_et_cf_t
+libngspice.so.0:vbic_4T_it_cf_fj
 libngspice.so.0:vconcat
 libngspice.so.0:vec_basename
 libngspice.so.0:vec_copy
