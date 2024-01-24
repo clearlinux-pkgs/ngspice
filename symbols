@@ -553,6 +553,7 @@ libngspice.so.0:EVTfindvec
 libngspice.so.0:EVTinit
 libngspice.so.0:EVTiter
 libngspice.so.0:EVTload
+libngspice.so.0:EVTload_with_event
 libngspice.so.0:EVTnext_time
 libngspice.so.0:EVTnode_copy
 libngspice.so.0:EVTop
@@ -1347,6 +1348,7 @@ libngspice.so.0:SMPcLUfac
 libngspice.so.0:SMPcProdDiag
 libngspice.so.0:SMPcReorder
 libngspice.so.0:SMPcSolve
+libngspice.so.0:SMPcSolveForCIDER
 libngspice.so.0:SMPcZeroCol
 libngspice.so.0:SMPcaSolve
 libngspice.so.0:SMPclear
@@ -1355,15 +1357,18 @@ libngspice.so.0:SMPdestroy
 libngspice.so.0:SMPfindElt
 libngspice.so.0:SMPgetError
 libngspice.so.0:SMPluFac
+libngspice.so.0:SMPluFacForCIDER
 libngspice.so.0:SMPmakeElt
 libngspice.so.0:SMPmatSize
 libngspice.so.0:SMPmultiply
 libngspice.so.0:SMPnewMatrix
+libngspice.so.0:SMPnewMatrixForCIDER
 libngspice.so.0:SMPpreOrder
 libngspice.so.0:SMPprint
 libngspice.so.0:SMPprintRHS
 libngspice.so.0:SMPreorder
 libngspice.so.0:SMPsolve
+libngspice.so.0:SMPsolveForCIDER
 libngspice.so.0:SMPzeroRow
 libngspice.so.0:SOI3acLoad
 libngspice.so.0:SOI3ask
@@ -1647,6 +1652,7 @@ libngspice.so.0:cm_analog_not_converged
 libngspice.so.0:cm_analog_ramp_factor
 libngspice.so.0:cm_analog_set_perm_bkpt
 libngspice.so.0:cm_analog_set_temp_bkpt
+libngspice.so.0:cm_cexit
 libngspice.so.0:cm_climit_fcn
 libngspice.so.0:cm_complex_add
 libngspice.so.0:cm_complex_divide
@@ -1659,6 +1665,7 @@ libngspice.so.0:cm_event_queue
 libngspice.so.0:cm_get_circuit
 libngspice.so.0:cm_get_node_name
 libngspice.so.0:cm_get_path
+libngspice.so.0:cm_irreversible
 libngspice.so.0:cm_message_get_errmsg
 libngspice.so.0:cm_message_send
 libngspice.so.0:cm_netlist_get_c
@@ -1702,8 +1709,11 @@ libngspice.so.0:com_dotmeasure
 libngspice.so.0:com_dump
 libngspice.so.0:com_echo
 libngspice.so.0:com_edit
+libngspice.so.0:com_fclose
 libngspice.so.0:com_fft
+libngspice.so.0:com_fopen
 libngspice.so.0:com_fourier
+libngspice.so.0:com_fread
 libngspice.so.0:com_getcwd
 libngspice.so.0:com_ghelp
 libngspice.so.0:com_gnuplot
@@ -1761,6 +1771,8 @@ libngspice.so.0:com_state
 libngspice.so.0:com_step
 libngspice.so.0:com_stop
 libngspice.so.0:com_strcmp
+libngspice.so.0:com_strslice
+libngspice.so.0:com_strstr
 libngspice.so.0:com_sttus
 libngspice.so.0:com_stype
 libngspice.so.0:com_sysinfo
@@ -2110,7 +2122,6 @@ libngspice.so.0:get_r_paren
 libngspice.so.0:get_res_info
 libngspice.so.0:get_soi3_info
 libngspice.so.0:get_sw_info
-libngspice.so.0:get_temp_name
 libngspice.so.0:get_tra_info
 libngspice.so.0:get_txl_info
 libngspice.so.0:get_urc_info
@@ -2303,7 +2314,9 @@ libngspice.so.0:ngSpice_CurPlot
 libngspice.so.0:ngSpice_Init
 libngspice.so.0:ngSpice_Init_Evt
 libngspice.so.0:ngSpice_Init_Sync
+libngspice.so.0:ngSpice_LockRealloc
 libngspice.so.0:ngSpice_SetBkpt
+libngspice.so.0:ngSpice_UnlockRealloc
 libngspice.so.0:ngSpice_running
 libngspice.so.0:ngdirname
 libngspice.so.0:nghash_delete
@@ -2500,6 +2513,7 @@ libngspice.so.0:sigill
 libngspice.so.0:sigsegv
 libngspice.so.0:sigsegvsh
 libngspice.so.0:sigstop
+libngspice.so.0:sigttio
 libngspice.so.0:smktemp
 libngspice.so.0:smktemp2
 libngspice.so.0:soa_printf
@@ -2587,6 +2601,7 @@ libngspice.so.0:txfree
 libngspice.so.0:u_add_instance
 libngspice.so.0:u_add_logicexp_model
 libngspice.so.0:u_check_instance
+libngspice.so.0:u_get_udevices_info
 libngspice.so.0:u_process_instance
 libngspice.so.0:u_process_model_line
 libngspice.so.0:u_remember_pin
