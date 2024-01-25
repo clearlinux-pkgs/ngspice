@@ -5,6 +5,6 @@
  Description: General-purpose circuit simulator
  Version: @VERSION@
 -Libs: -L${libdir} -lngspice
-+Libs: -L${libdir} -lngspice -lfftw
++Libs: -L${libdir} -lngspice -lfftw3
  Cflags: -I${includedir}
  
