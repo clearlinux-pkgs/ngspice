@@ -7,7 +7,7 @@
 #
 Name     : ngspice
 Version  : 42
-Release  : 13
+Release  : 14
 URL      : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42.tar.gz
 Source0  : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42.tar.gz
 Summary  : General-purpose circuit simulator
@@ -107,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1706207239
+export SOURCE_DATE_EPOCH=1706212826
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -167,7 +167,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1706207239
+export SOURCE_DATE_EPOCH=1706212826
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ngspice
 cp %{_builddir}/ngspice-%{version}/COPYING %{buildroot}/usr/share/package-licenses/ngspice/a1491cd75848105be6eef7dd4dee78b9bec62718 || :
@@ -176,6 +176,8 @@ pushd ../buildavx2/
 %make_install_v3
 popd
 %make_install
+## Remove excluded files
+rm -f %{buildroot}*/usr/lib64/pkgconfig/ngspice.pc
 ## install_append content
 /usr/bin/mkdir -p %{buildroot}/usr/bin
 /usr/bin/install -c -m 755 src/ngspice %{buildroot}/usr/bin
@@ -222,7 +224,6 @@ popd
 %defattr(-,root,root,-)
 /usr/include/ngspice/sharedspice.h
 /usr/lib64/libngspice.so
-/usr/lib64/pkgconfig/ngspice.pc
 
 %files lib
 %defattr(-,root,root,-)
