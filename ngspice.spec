@@ -7,7 +7,7 @@
 #
 Name     : ngspice
 Version  : 42
-Release  : 12
+Release  : 13
 URL      : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42.tar.gz
 Source0  : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42.tar.gz
 Summary  : General-purpose circuit simulator
@@ -62,6 +62,7 @@ Requires: ngspice-bin = %{version}-%{release}
 Requires: ngspice-data = %{version}-%{release}
 Provides: ngspice-devel = %{version}-%{release}
 Requires: ngspice = %{version}-%{release}
+Requires: fftw-dev
 
 %description dev
 dev components for the ngspice package.
@@ -106,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1706202719
+export SOURCE_DATE_EPOCH=1706207239
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -166,7 +167,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1706202719
+export SOURCE_DATE_EPOCH=1706207239
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ngspice
 cp %{_builddir}/ngspice-%{version}/COPYING %{buildroot}/usr/share/package-licenses/ngspice/a1491cd75848105be6eef7dd4dee78b9bec62718 || :
