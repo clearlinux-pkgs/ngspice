@@ -7,7 +7,7 @@
 #
 Name     : ngspice
 Version  : 42
-Release  : 10
+Release  : 11
 URL      : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42.tar.gz
 Source0  : https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42.tar.gz
 Summary  : General-purpose circuit simulator
