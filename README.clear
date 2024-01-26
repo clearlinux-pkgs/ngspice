@@ -1,0 +1,24 @@
+Upstream build design requires executable and shared libraries to be
+built in separate passes, in clean source trees. Otherwise, some symbols
+may not be populated properly. For example:
+
+The .pc file for ngspice cannot be used during compilation
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `cvprod'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `fftBRInit'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `ft_peval'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `iffts1'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `ft_polyderiv'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `riffts1'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `fftCosInit'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `ENHreport_conv_prob'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `ffts1'
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-generic-linux/13/../../../../lib64/libngspice.so: undefined reference to `rffts1'
+
+This is managed by configure flags that ultimately set #defines, not by make targets.
+
+The separate configure/build process for the standalone application is defined in:
+build_prepend_once
+make_prepend
+install_append
+
+If the process becomes too fragile, the application and shared libraries could be split into two packages.
