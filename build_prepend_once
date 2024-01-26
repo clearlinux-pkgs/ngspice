@@ -1,0 +1,2 @@
+# Make a copy of the source directory for static builds
+cp -pr . %{_builddir}/build-static

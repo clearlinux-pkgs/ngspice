@@ -1,4 +1,8 @@
-/usr/bin/mkdir -p %{buildroot}/usr/bin
-/usr/bin/install -c -m 755 src/ngspice %{buildroot}/usr/bin
-/usr/bin/mkdir -p %{buildroot}/usr/share/man/man1
-/usr/bin/install -c -m 644 man/man1/ngspice.1 %{buildroot}/usr/share/man/man1
+if [[ -d %{_builddir}/build-static ]]; then
+	pushd %{_builddir}/build-static
+	/usr/bin/mkdir -p %{buildroot}/usr/bin
+	/usr/bin/install -c -m 755 src/ngspice %{buildroot}/usr/bin
+	/usr/bin/mkdir -p %{buildroot}/usr/share/man/man1
+	/usr/bin/install -c -m 644 man/man1/ngspice.1 %{buildroot}/usr/share/man/man1
+	popd
+fi

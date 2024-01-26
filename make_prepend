@@ -1,2 +1,9 @@
-make  %{?_smp_mflags}
-%configure --disable-static --with-ngshared --enable-xspice --enable-cider --enable-openmp
+if [[ -d %{_builddir}/build-static ]] && ! [[ -f %{_builddir}/build-static/config.status ]]; then
+	pushd %{_builddir}/build-static
+	./configure --with-x --enable-xspice --enable-cider --with-readline=yes --enable-openmp
+	make  %{?_smp_mflags}
+	popd
+fi
+
+# Point to the static app to run tests under `make check`
+ln -s %{_builddir}/build-static/src/ngspice src/ngspice

@@ -540,6 +540,7 @@ libngspice.so.0:ELCTcheck
 libngspice.so.0:ELCTnewCard
 libngspice.so.0:ELCTparam
 libngspice.so.0:ELCTsetup
+libngspice.so.0:ENHreport_conv_prob
 libngspice.so.0:ENHtranslate_poly
 libngspice.so.0:EVTaccept
 libngspice.so.0:EVTallnodes
@@ -1870,6 +1871,7 @@ libngspice.so.0:ctranspose
 libngspice.so.0:ctransposeconj
 libngspice.so.0:ctriinverse
 libngspice.so.0:cvconcat
+libngspice.so.0:cvprod
 libngspice.so.0:cx_and
 libngspice.so.0:cx_atan
 libngspice.so.0:cx_atanh
@@ -1935,6 +1937,7 @@ libngspice.so.0:cx_uminus
 libngspice.so.0:cx_unitvec
 libngspice.so.0:cx_unwrap
 libngspice.so.0:cx_vector
+libngspice.so.0:cxpose
 libngspice.so.0:czeros
 libngspice.so.0:datestring
 libngspice.so.0:db_print_pnode_tree
@@ -1999,10 +2002,14 @@ libngspice.so.0:f_logicexp
 libngspice.so.0:f_pindly
 libngspice.so.0:fastnorm
 libngspice.so.0:fatal
+libngspice.so.0:fftBRInit
+libngspice.so.0:fftCosInit
 libngspice.so.0:fftFree
 libngspice.so.0:fftInit
 libngspice.so.0:fft_windows
+libngspice.so.0:fftrecurs
 libngspice.so.0:ffts
+libngspice.so.0:ffts1
 libngspice.so.0:find_assignment
 libngspice.so.0:find_back_assignment
 libngspice.so.0:find_first_of
@@ -2042,8 +2049,10 @@ libngspice.so.0:ft_loadfile
 libngspice.so.0:ft_minmax
 libngspice.so.0:ft_newcirc
 libngspice.so.0:ft_numparse
+libngspice.so.0:ft_peval
 libngspice.so.0:ft_plotabbrev
 libngspice.so.0:ft_pnode
+libngspice.so.0:ft_polyderiv
 libngspice.so.0:ft_polyfit
 libngspice.so.0:ft_savedotargs
 libngspice.so.0:ft_savemeasure
@@ -2176,7 +2185,9 @@ libngspice.so.0:if_sens_run
 libngspice.so.0:if_setparam
 libngspice.so.0:if_setparam_model
 libngspice.so.0:if_tranparams
+libngspice.so.0:ifftrecurs
 libngspice.so.0:iffts
+libngspice.so.0:iffts1
 libngspice.so.0:inchar
 libngspice.so.0:incindex
 libngspice.so.0:indexstring
@@ -2460,9 +2471,11 @@ libngspice.so.0:reset_trace
 libngspice.so.0:resizecmat
 libngspice.so.0:resizemat
 libngspice.so.0:rffts
+libngspice.so.0:rffts1
 libngspice.so.0:rgamma
 libngspice.so.0:rgauss
 libngspice.so.0:riffts
+libngspice.so.0:riffts1
 libngspice.so.0:rowechelon
 libngspice.so.0:rspectprod
 libngspice.so.0:sadd
@@ -2656,6 +2669,7 @@ libngspice.so.0:wl_range
 libngspice.so.0:wl_reverse
 libngspice.so.0:wl_sort
 libngspice.so.0:wl_splice
+libngspice.so.0:xpose
 libngspice.so.0:yes_or_no
 libngspice.so.0:zaddeq
 libngspice.so.0:zeros
