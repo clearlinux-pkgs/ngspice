@@ -2,6 +2,8 @@ Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
+Configure miss: g++ option to enable C++11 features
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
@@ -10,6 +12,8 @@ Configure miss: if hard-coding of the X11 runtime library path is desired
 Configure miss: if hard-coding of the X11 runtime library path is desired
 Configure miss: if hard-coding of the X11 runtime library path is desired
 Configure miss: if hard-coding of the X11 runtime library path is desired
+Configure miss: if hard-coding of the X11 runtime library path is desired
+Configure miss: library containing yywrap
 Configure miss: library containing yywrap
 Configure miss: library containing yywrap
 Configure miss: library containing yywrap
@@ -18,6 +22,8 @@ Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h
+Configure miss: ncurses/termcap.h
+Configure miss: sighandler_t
 Configure miss: sighandler_t
 Configure miss: sighandler_t
 Configure miss: sighandler_t
@@ -26,6 +32,8 @@ Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: stropts.h
+Configure miss: stropts.h
+Configure miss: sys/sysctl.h
 Configure miss: sys/sysctl.h
 Configure miss: sys/sysctl.h
 Configure miss: sys/sysctl.h
@@ -34,7 +42,12 @@ Configure miss: whether windows code with gui is enabled
 Configure miss: whether windows code with gui is enabled
 Configure miss: whether windows code with gui is enabled
 Configure miss: whether windows code with gui is enabled
-Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: whether windows code with gui is enabled
+Configure miss: x86_64-clr-linux-gnu-dlltool
+Configure miss: x86_64-clr-linux-gnu-file
+Configure miss: x86_64-clr-linux-gnu-mt
+Configure miss: x86_64-clr-linux-gnu-objdump
+Configure miss: x86_64-clr-linux-gnu-strip
 Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file

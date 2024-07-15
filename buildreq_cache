@@ -1,6 +1,8 @@
-42
+43
 bison
 fftw-dev
+file
 flex
 libXft-dev
+ncurses-dev
 readline-dev
