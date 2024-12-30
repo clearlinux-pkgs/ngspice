@@ -23,6 +23,11 @@ Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h
 Configure miss: ncurses/termcap.h
+Configure miss: queryperformancecounter
+Configure miss: queryperformancecounter
+Configure miss: queryperformancecounter
+Configure miss: queryperformancecounter
+Configure miss: queryperformancecounter
 Configure miss: sighandler_t
 Configure miss: sighandler_t
 Configure miss: sighandler_t

@@ -1783,19 +1783,6 @@ libngspice.so.0:VSRCtemp
 libngspice.so.0:VSRCunsetup
 libngspice.so.0:XMSHnewCard
 libngspice.so.0:YMSHnewCard
-libngspice.so.0:_Z11hicum_HICJQN5duals4dualIdEE11sDualDoubleS2_dS2_dPdS3_S3_S3_S3_S3_
-libngspice.so.0:_Z11hicum_diodeN5duals4dualIdEE11sDualDoubleddPdS3_S3_
-libngspice.so.0:_Z12hicum_qjmodfN5duals4dualIdEE11sDualDoubleS2_dS2_dPdS3_S3_S3_S3_S3_
-libngspice.so.0:_Z13calc_hjei_vbeN5duals4dualIdEES1_P14sHICUMinstanceP11sHICUMmodel
-libngspice.so.0:_Z13hicum_TMPHICJN5duals4dualIdEEdS1_S1_dddddddPdS2_S2_S2_S2_S2_
-libngspice.so.0:_Z16clip_temperatureN5duals4dualIdEE
-libngspice.so.0:_Z5HICJQN5duals4dualIdEES1_S1_dS1_S1_PS1_S2_
-libngspice.so.0:_Z5QJMODN5duals4dualIdEES1_S1_ddS1_S1_PS1_S2_
-libngspice.so.0:_Z6HICDION5duals4dualIdEES1_dS1_
-libngspice.so.0:_Z6HICFCIddN5duals4dualIdEEPS1_S2_
-libngspice.so.0:_Z6HICFCTdN5duals4dualIdEEPS1_S2_
-libngspice.so.0:_Z6QJMODFN5duals4dualIdEES1_S1_dS1_S1_PS1_S2_
-libngspice.so.0:_Z7TMPHICJN5duals4dualIdEEdS1_S1_dddddddPS1_S2_S2_
 libngspice.so.0:_nghash_find
 libngspice.so.0:_nghash_find_again
 libngspice.so.0:absolute_pathname
@@ -1846,6 +1833,7 @@ libngspice.so.0:ceye
 libngspice.so.0:chconcat
 libngspice.so.0:checkElectrodes
 libngspice.so.0:check_autostop
+libngspice.so.0:check_batch
 libngspice.so.0:checkseed
 libngspice.so.0:cieq
 libngspice.so.0:cieqn
@@ -1857,6 +1845,7 @@ libngspice.so.0:cinversedest
 libngspice.so.0:ciprefix
 libngspice.so.0:cleanup_udevice
 libngspice.so.0:clip_line
+libngspice.so.0:clip_temperature(duals::dual<double>)
 libngspice.so.0:clip_to_circle
 libngspice.so.0:cm_analog_alloc
 libngspice.so.0:cm_analog_auto_partial
@@ -2034,7 +2023,6 @@ libngspice.so.0:cp_addhistent
 libngspice.so.0:cp_addkword
 libngspice.so.0:cp_bquote
 libngspice.so.0:cp_ccom
-libngspice.so.0:cp_ccon
 libngspice.so.0:cp_ccrestart
 libngspice.so.0:cp_cctowl
 libngspice.so.0:cp_comlook
@@ -2603,8 +2591,10 @@ libngspice.so.0:ngSpice_Init
 libngspice.so.0:ngSpice_Init_Evt
 libngspice.so.0:ngSpice_Init_Sync
 libngspice.so.0:ngSpice_LockRealloc
+libngspice.so.0:ngSpice_Reset
 libngspice.so.0:ngSpice_SetBkpt
 libngspice.so.0:ngSpice_UnlockRealloc
+libngspice.so.0:ngSpice_nospiceinit
 libngspice.so.0:ngSpice_nospinit
 libngspice.so.0:ngSpice_running
 libngspice.so.0:ngdirname
@@ -2714,6 +2704,7 @@ libngspice.so.0:oxideConductance
 libngspice.so.0:oxideCurrent
 libngspice.so.0:param_forall
 libngspice.so.0:param_forall_old
+libngspice.so.0:perf_timer_get_time
 libngspice.so.0:pl_rempar
 libngspice.so.0:plot_add
 libngspice.so.0:plot_alloc
@@ -2786,10 +2777,6 @@ libngspice.so.0:sens_getp
 libngspice.so.0:sens_sens
 libngspice.so.0:set
 libngspice.so.0:set_compat_mode
-libngspice.so.0:set_dev
-libngspice.so.0:set_inst
-libngspice.so.0:set_model
-libngspice.so.0:set_param
 libngspice.so.0:setc
 libngspice.so.0:setseedinfo
 libngspice.so.0:settrace
@@ -2893,6 +2880,7 @@ libngspice.so.0:tcap_init
 libngspice.so.0:term_clear
 libngspice.so.0:term_cleol
 libngspice.so.0:term_home
+libngspice.so.0:test_background
 libngspice.so.0:throwaway
 libngspice.so.0:tildexpand
 libngspice.so.0:timediff
@@ -2916,6 +2904,7 @@ libngspice.so.0:u_get_udevices_info
 libngspice.so.0:u_process_instance
 libngspice.so.0:u_process_model_line
 libngspice.so.0:u_remember_pin
+libngspice.so.0:u_subckt_line
 libngspice.so.0:unset_all
 libngspice.so.0:urandm
 libngspice.so.0:var_alloc
